@@ -1,11 +1,11 @@
 // Define earthquakes GeoJSON url
-var earthquakesURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+var qakeURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Create earthquakes layerGroup
-var earthquakes = L.layerGroup();
+var quakes = L.layerGroup();
 
 // Create tile layer
-var grayscaleMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+var baseMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     tileSize: 512,
     maxZoom: 18,
@@ -18,10 +18,10 @@ var grayscaleMap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/
 var myMap = L.map("map", {
     center: [9.080, -79.680],
     zoom: 3,
-    layers: [grayscaleMap, earthquakes]
+    layers: [baseMap, quakes]
 });
 
-d3.json(earthquakesURL, function (data) {
+d3.json(qakeURL, function (data) {
 
     // Define marker size by magnitude
     function markerSize(magnitude) {
@@ -53,8 +53,8 @@ d3.json(earthquakesURL, function (data) {
                 {
                     radius: markerSize(feature.properties.mag),
                     fillColor: chooseColor(feature.geometry.coordinates[2]),
-                    fillOpacity: 0.7,
-                    color: "black",
+                    fillOpacity: 0.6,
+                    color: "grey",
                     stroke: true,
                     weight: 0.5
                 }
@@ -64,9 +64,9 @@ d3.json(earthquakesURL, function (data) {
             layer.bindPopup("<h3>Location: " + feature.properties.place + "</h3><hr><p>Date: "
                 + new Date(feature.properties.time) + "</p><hr><p>Magnitude: " + feature.properties.mag + "</p>");
         }
-    }).addTo(earthquakes);
+    }).addTo(quakes);
     // Earthquakes layer added to myMap
-    earthquakes.addTo(myMap);
+    quakes.addTo(myMap);
 
     // Legend object
     var legend = L.control({ position: "bottomleft" });
