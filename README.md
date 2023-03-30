@@ -8,5 +8,5 @@ In this challenge, we develop a visualisation of the USGS data that will allow m
 
 ## Data
 Data is that of "Earthquakes from the Past 7 Days" as sourced from the USGS GeoJSON page (https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).   
-The data markers show the magnitude of each earthquake (on Richter scale) by size, as well as its depth by colour.  
+The data markers show the magnitude of each earthquake (on the Mercalli scale) by size, as well as its depth by colour.  
 Popups provide additional information about the earthquake are shown upon selecting the marker.  
