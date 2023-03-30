@@ -7,6 +7,6 @@ They collect a massive amount of data from all over the world each day, but they
 In this challenge, we develop a visualisation of the USGS data that will allow management to display key information about recent earthquakes so as to better educate the public and other government organisations  on issues facing our planet.
 
 ## Data
-Data is that of "Earthquakes from the Past 7 Days" as sourced from the USGS GeoJSON page.  
+Data is that of "Earthquakes from the Past 7 Days" as sourced from the USGS GeoJSON page (https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).   
 The data markers show the magnitude of each earthquake (on Richter scale) by size, as well as its depth by colour.  
 Popups provide additional information about the earthquake are shown upon selecting the marker.  
